@@ -8,6 +8,8 @@
             <file>file:/C:/josue/Java/AplicacionJavaSwingCRUD/src/com/josue/crud/presentacion/JInternalFramePerfil.java</file>
             <file>file:/C:/josue/Java/AplicacionJavaSwingCRUD/src/com/josue/crud/presentacion/JInternalFrameCrudPersona.java</file>
             <file>file:/C:/josue/Java/AplicacionJavaSwingCRUD/src/com/josue/crud/datos/Persona.java</file>
+            <file>file:/C:/josue/Java/AplicacionJavaSwingCRUD/src/com/josue/crud/persistencia/PersonaDAO.java</file>
+            <file>file:/C:/josue/Java/AplicacionJavaSwingCRUD/src/com/josue/crud/db/ConexionOracle.java</file>
         </group>
     </open-files>
 </project-private>

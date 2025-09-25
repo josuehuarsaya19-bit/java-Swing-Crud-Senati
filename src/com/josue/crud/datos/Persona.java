@@ -10,17 +10,7 @@ public class Persona {
     private String Direccion;
     private int numeroDocumetos;
 
-    public Persona(int IDPersona, String nombres, String apellidos, String fechaNacimiento, String Direccion, int numeroDocumetos) {
-        this.IDPersona = IDPersona;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.fechaNacimiento = fechaNacimiento;
-        this.Direccion = Direccion;
-        this.numeroDocumetos = numeroDocumetos;
-    }
-    
-    
-
+ 
     public int getIDPersona() {
         return IDPersona;
     }
