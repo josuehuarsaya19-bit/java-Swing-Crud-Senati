@@ -1,6 +1,9 @@
 package com.josue.crud.presentacion;
 
+import com.josue.crud.datos.Persona;
+import com.josue.crud.persistencia.PersonaDAO;
 import java.awt.Dimension;
+import javax.swing.JOptionPane;
 
 public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
 
@@ -19,15 +22,15 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        texNombres = new javax.swing.JTextField();
+        textNombres = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        texApellidos = new javax.swing.JTextField();
+        textApellidos = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        textFechaNacimiento = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
-        texDocumento = new javax.swing.JTextField();
+        textDocumento = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
-        texDireccion = new javax.swing.JTextField();
+        textDireccion = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         btnActualizar = new javax.swing.JButton();
@@ -51,7 +54,7 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
-        getContentPane().add(texNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 210, 30));
+        getContentPane().add(textNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 210, 30));
 
         jTextField3.setText("Apellidos");
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -60,7 +63,7 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
-        getContentPane().add(texApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 210, 30));
+        getContentPane().add(textApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 210, 30));
 
         jTextField5.setText("fecha Nacimiento");
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
@@ -69,11 +72,11 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 120, -1));
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 210, 30));
+        getContentPane().add(textFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 210, 30));
 
         jTextField7.setText("documeto");
         getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
-        getContentPane().add(texDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 210, 30));
+        getContentPane().add(textDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 210, 30));
 
         jTextField9.setText("Direccion");
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
@@ -82,7 +85,7 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
-        getContentPane().add(texDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 210, -1));
+        getContentPane().add(textDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 210, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -108,6 +111,11 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
         getContentPane().add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 530, 180, 40));
 
         btnEliminar.setText("ELIMINAR");
+        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEliminarMouseClicked(evt);
+            }
+        });
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -116,6 +124,11 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
         getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 530, 180, 40));
 
         btnGuardar.setText("GUARDAR");
+        btnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGuardarMouseClicked(evt);
+            }
+        });
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
@@ -152,8 +165,39 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        System.out.println("");
+      
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseClicked
+        // TODO add your handling code here:
+        System.out.println("Nombre: " + textNombres.getText());
+        System.out.println("Apellidos: " + textApellidos.getText());
+        
+        
+        Persona p = new Persona();
+        p.setNombres(textNombres.getText());
+        p.setApellidos(textApellidos.getText());
+        p.setFechaNacimiento(textFechaNacimiento.getText());
+        p.setDireccion(textDireccion.getText());
+        p.setNumeroDocumetos(Integer.parseInt(textDocumento.getText()));
+
+        PersonaDAO personaDAO = new PersonaDAO();
+        String mensaje = personaDAO.insertarPersona(p);
+        
+        JOptionPane.showMessageDialog(this, mensaje);
+        
+        System.out.println(mensaje);
+    //GEN-LAST:event_btnGuardarMouseClicked
+    }//GEN-LAST:event_btnGuardarMouseClicked
+
+    private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
+          System.out.println("aqui el boton eliminar persona");
+        
+        PersonaDAO pdao = new PersonaDAO();
+        String mensaje = pdao.eliminarPerseona(43);
+        JOptionPane.showMessageDialog(this, mensaje);
+        
+    }//GEN-LAST:event_btnEliminarMouseClicked
     
 
             
@@ -172,12 +216,12 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JTextField texApellidos;
-    private javax.swing.JTextField texDireccion;
-    private javax.swing.JTextField texDocumento;
-    private javax.swing.JTextField texNombres;
+    private javax.swing.JTextField textApellidos;
+    private javax.swing.JTextField textDireccion;
+    private javax.swing.JTextField textDocumento;
+    private javax.swing.JTextField textFechaNacimiento;
+    private javax.swing.JTextField textNombres;
     // End of variables declaration//GEN-END:variables
 }

@@ -52,11 +52,8 @@ public class JFrameLogin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 290, 40));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\SOPORTE\\Downloads\\icono de senati (1).png")); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 150, 130));
 
-        jTextField3.setText("jTextField2");
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -64,11 +61,9 @@ public class JFrameLogin extends javax.swing.JFrame {
         });
         jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 290, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\SOPORTE\\Downloads\\Diagrama en blanco.png")); // NOI18N
         jLabel2.setText("Usuario");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\SOPORTE\\Downloads\\icontraseña-25.png")); // NOI18N
         jLabel3.setText("Contraseña");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, -1));
 

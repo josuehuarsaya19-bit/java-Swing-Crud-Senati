@@ -1,4 +1,5 @@
 package com.josue.crud.presentacion;
+
 import java.awt.Dimension;
 import java.awt.Color;
 import javax.swing.JDesktopPane;
@@ -32,7 +33,7 @@ public class JFrameMenu extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuperfil1 = new javax.swing.JMenu();
-        jMenuCRUDpersona2 = new javax.swing.JMenu();
+        MenuCRUDpersona = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,13 +45,13 @@ public class JFrameMenu extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenuperfil1);
 
-        jMenuCRUDpersona2.setText("CRUD persona");
-        jMenuCRUDpersona2.addMouseListener(new java.awt.event.MouseAdapter() {
+        MenuCRUDpersona.setText("CRUD persona");
+        MenuCRUDpersona.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuCRUDpersona2MouseClicked(evt);
+                MenuCRUDpersonaMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenuCRUDpersona2);
+        jMenuBar1.add(MenuCRUDpersona);
 
         setJMenuBar(jMenuBar1);
 
@@ -69,8 +70,7 @@ public class JFrameMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuperfil1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuperfil1MouseClicked
-        // TODO add your handling code here:
-        
+
         System.out.println("fgslfdkngslfdng");
         
         // instanciar 
@@ -81,13 +81,13 @@ public class JFrameMenu extends javax.swing.JFrame {
     
     }//GEN-LAST:event_jMenuperfil1MouseClicked
 
-    private void jMenuCRUDpersona2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuCRUDpersona2MouseClicked
+    private void MenuCRUDpersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuCRUDpersonaMouseClicked
         // TODO add your handling code here:
         
-        JInternalFrameCrudPersona persona = new JInternalFrameCrudPersona();
-        JDesktopPane_Menu.add(persona);
-        persona.setVisible(true);
-    }//GEN-LAST:event_jMenuCRUDpersona2MouseClicked
+        JInternalFrameCrudPersona crudPersona = new JInternalFrameCrudPersona();
+        JDesktopPane_Menu.add(crudPersona);
+        crudPersona.setVisible(true);
+    }//GEN-LAST:event_MenuCRUDpersonaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -130,8 +130,8 @@ public class JFrameMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu MenuCRUDpersona;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu jMenuCRUDpersona2;
     private javax.swing.JMenu jMenuperfil1;
     // End of variables declaration//GEN-END:variables
 }

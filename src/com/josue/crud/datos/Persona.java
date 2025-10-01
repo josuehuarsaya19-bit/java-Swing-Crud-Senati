@@ -8,7 +8,7 @@ public class Persona {
     private String apellidos;
     private String fechaNacimiento;
     private String Direccion;
-    private int numeroDocumetos;
+    private int numeroDocumentos;
 
  
     public int getIDPersona() {
@@ -52,11 +52,11 @@ public class Persona {
     }
 
     public int getNumeroDocumetos() {
-        return numeroDocumetos;
+        return numeroDocumentos;
     }
 
     public void setNumeroDocumetos(int numeroDocumetos) {
-        this.numeroDocumetos = numeroDocumetos;
+        this.numeroDocumentos = numeroDocumetos;
     }
     
     
