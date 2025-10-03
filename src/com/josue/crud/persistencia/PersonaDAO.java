@@ -127,13 +127,13 @@ public class PersonaDAO {
             //ejecutar
             ps.execute();
             connection.commit();
-            return "Persona Creada con Éxito";
+            return "Persona actualizada con Éxito";
         } catch (SQLException e) {
             try {
                 connection.rollback();
             } catch (Exception ex) {
             }
-            return "Persona no Creada: " + e.getMessage();
+            return "Persona no Actualizada: " + e.getMessage();
         }
     }
     

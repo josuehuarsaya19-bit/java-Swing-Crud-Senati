@@ -44,15 +44,10 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         textNombres = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
         textApellidos = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
         textFechaNacimiento = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
         textDocumento = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
         textDireccion = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablePersona = new javax.swing.JTable();
@@ -60,6 +55,16 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
         btnEliminar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
+        labelErrorNombre = new javax.swing.JLabel();
+        labelErrorFecha = new javax.swing.JLabel();
+        labelErrorDoc = new javax.swing.JLabel();
+        labelErrorDirec = new javax.swing.JLabel();
+        labelErrorApellidos = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -70,45 +75,10 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Gestion de personas");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
-
-        jTextField1.setText("Nombre");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
         getContentPane().add(textNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 210, 30));
-
-        jTextField3.setText("Apellidos");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
         getContentPane().add(textApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 210, 30));
-
-        jTextField5.setText("fecha Nacimiento");
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 120, -1));
         getContentPane().add(textFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 210, 30));
-
-        jTextField7.setText("documeto");
-        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
         getContentPane().add(textDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 210, 30));
-
-        jTextField9.setText("Direccion");
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
         getContentPane().add(textDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 210, -1));
 
         tablePersona.setModel(new javax.swing.table.DefaultTableModel(
@@ -173,24 +143,43 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 527, 180, 40));
 
+        labelErrorNombre.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        labelErrorNombre.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(labelErrorNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+
+        labelErrorFecha.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        labelErrorFecha.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(labelErrorFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+
+        labelErrorDoc.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        labelErrorDoc.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(labelErrorDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
+
+        labelErrorDirec.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        labelErrorDirec.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(labelErrorDirec, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, -1));
+
+        labelErrorApellidos.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        labelErrorApellidos.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(labelErrorApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+
+        jLabel2.setText("Apellidos");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 70, 20));
+
+        jLabel3.setText("Fecha Nacimiento");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 70, 20));
+
+        jLabel4.setText("Documento");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 70, 20));
+
+        jLabel5.setText("Dirección");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 70, 20));
+
+        jLabel6.setText("Nombre");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 70, 20));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
-
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
@@ -207,7 +196,10 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
 
     private void btnGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseClicked
         // TODO add your handling code here:
-        System.out.println("Nombre: " + textNombres.getText());
+        boolean valida = validaFormulario ();
+
+        if(valida){
+          System.out.println("Nombre: " + textNombres.getText());
         System.out.println("Apellidos: " + textApellidos.getText());
         System.out.println("Direccion: "+textDireccion.getText());
         System.out.println("Dcumento: "+textDocumento.getText());
@@ -240,9 +232,10 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
         textApellidos.setText("");
         textDireccion.setText("");
         textDocumento.setText("");
-        textFechaNacimiento.setText("");                                   
+        textFechaNacimiento.setText("");  
+        }                                     
     }//GEN-LAST:event_btnGuardarMouseClicked
-
+    
     private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
           System.out.println("aqui el boton eliminar persona");
         
@@ -255,8 +248,50 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(this, mensaje);
     }//GEN-LAST:event_btnEliminarMouseClicked
 
+    
+    
+    private boolean validaFormulario(){
+        boolean valida = true ;
+
+         if(String.valueOf(textNombres.getText()).isEmpty()){
+             valida = false;
+             labelErrorNombre.setText("campo Nombre obligatorio");
+            }else{
+             labelErrorNombre.setText("");
+         }
+         
+         if(String.valueOf(textApellidos.getText()).isEmpty()){
+             valida = false;
+             labelErrorApellidos.setText("campo Apellido obligatorio");
+            }else{
+             labelErrorApellidos.setText("");
+         }
+         
+         if(String.valueOf(textFechaNacimiento.getText()).isEmpty()){
+             valida = false;
+             labelErrorFecha.setText("campo Apellido obligatorio");
+            }else{
+             labelErrorFecha.setText("");
+         }
+         
+         if(String.valueOf(textDocumento.getText()).isEmpty()){
+             valida = false;
+             labelErrorDoc.setText("campo Apellido obligatorio");
+            }else{
+             labelErrorDoc.setText("");
+         }
+         
+         if(String.valueOf(textDireccion.getText()).isEmpty()){
+             valida = false;
+             labelErrorDirec.setText("campo Apellido obligatorio");
+            }else{
+             labelErrorDirec.setText("");
+         }
+         return valida;
+    }
     private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
         // TODO add your handling code here:
+
         this.validaGuardarActualizar =1;
         
         int filaSeleccionada = tablePersona.getSelectedRow();
@@ -272,6 +307,12 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
         textDocumento.setText(numero+"");
         textDireccion.setText(direcion);
         textFechaNacimiento.setText(fechaNacimiento);
+        
+         
+         
+         
+        
+
     }//GEN-LAST:event_btnActualizarMouseClicked
 
     private void btnLimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseClicked
@@ -282,6 +323,9 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
         textDocumento.setText("");
         textFechaNacimiento.setText(""); 
         validaGuardarActualizar = 0;
+        
+        
+        
     }//GEN-LAST:event_btnLimpiarMouseClicked
                   
                             
@@ -292,12 +336,17 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel labelErrorApellidos;
+    private javax.swing.JLabel labelErrorDirec;
+    private javax.swing.JLabel labelErrorDoc;
+    private javax.swing.JLabel labelErrorFecha;
+    private javax.swing.JLabel labelErrorNombre;
     private javax.swing.JTable tablePersona;
     private javax.swing.JTextField textApellidos;
     private javax.swing.JTextField textDireccion;
