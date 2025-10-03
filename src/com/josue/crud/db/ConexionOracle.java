@@ -9,8 +9,8 @@ public class ConexionOracle {
 // Declaración de variables estáticas para la conexión
 
   private static Connection conn = null;
-  private static String login = "JOSUE"; // Usuario de la base de datos
-  private static String clave = "admin2007"; // Contraseña de la base de datos
+  private static String login = "JOSUE2"; // Usuario de la base de datos
+  private static String clave = "admin123456"; // Contraseña de la base de datos
   private static String url = "jdbc:oracle:thin:@localhost:1521:xe"; // URL de conexión a la base de datos
 
 

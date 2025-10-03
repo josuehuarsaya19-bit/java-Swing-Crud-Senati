@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/JOSUE_java/java-Swing-Crud-Senati/src/com/josue/crud/persistencia/PersonaDAO.java</file>
+            <file>file:/C:/josue/Java/java-Swing-Crud-Senati/src/com/josue/crud/persistencia/PersonaDAO.java</file>
+            <file>file:/C:/josue/Java/java-Swing-Crud-Senati/src/com/josue/crud/db/ConexionOracle.java</file>
+            <file>file:/C:/josue/Java/java-Swing-Crud-Senati/src/com/josue/crud/presentacion/JInternalFrameCrudPersona.java</file>
+            <file>file:/C:/josue/Java/java-Swing-Crud-Senati/src/com/josue/crud/datos/Persona.java</file>
         </group>
     </open-files>
 </project-private>

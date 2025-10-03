@@ -3,16 +3,39 @@ package com.josue.crud.presentacion;
 import com.josue.crud.datos.Persona;
 import com.josue.crud.persistencia.PersonaDAO;
 import java.awt.Dimension;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
-public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
+public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame { 
+    int idPersona;
+    int validaGuardarActualizar = 0;
 
-    
     public JInternalFrameCrudPersona() {
         initComponents();
-        
         this.setSize(new Dimension(800,650));
-        this.setTitle("CrudPersona");
+        this.setTitle("Gestión Persona");
+        listarPersona();
+    }
+    
+    private DefaultTableModel modeloTabla;
+    public void listarPersona(){
+        PersonaDAO pdao = new PersonaDAO();
+        List<Persona> listaPersonas = pdao.listarPersona();
+        
+        modeloTabla = new DefaultTableModel(new String[]{"ID","NOMBRES","APELLIDOS","NUMERO_DOC", "DIRECCION", "FECHA_NACIMIENTO"},0);
+        tablePersona.setModel(modeloTabla);
+        
+        for( Persona p : listaPersonas){
+            modeloTabla.addRow(new Object[]{
+                p.getIDPersona(),
+                p.getNombres(),
+                p.getApellidos(),
+                p.getNumeroDocumetos(),
+                p.getDireccion(),
+                p.getFechaNacimiento()
+            });
+        }
     }
 
     
@@ -32,10 +55,11 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
         jTextField9 = new javax.swing.JTextField();
         textDireccion = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablePersona = new javax.swing.JTable();
         btnActualizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -87,7 +111,7 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
         getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
         getContentPane().add(textDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 210, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablePersona.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -98,11 +122,16 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablePersona);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, -1));
 
         btnActualizar.setText("ACTULIZAR");
+        btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnActualizarMouseClicked(evt);
+            }
+        });
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
@@ -135,6 +164,14 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 180, 40));
+
+        btnLimpiar.setText("LIMPIAR");
+        btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 527, 180, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -172,9 +209,12 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         System.out.println("Nombre: " + textNombres.getText());
         System.out.println("Apellidos: " + textApellidos.getText());
-        
+        System.out.println("Direccion: "+textDireccion.getText());
+        System.out.println("Dcumento: "+textDocumento.getText());
+        System.out.println("Fecha Nacimiento: "+textFechaNacimiento.getText());
         
         Persona p = new Persona();
+        p.setIDPersona(idPersona);
         p.setNombres(textNombres.getText());
         p.setApellidos(textApellidos.getText());
         p.setFechaNacimiento(textFechaNacimiento.getText());
@@ -182,42 +222,83 @@ public class JInternalFrameCrudPersona extends javax.swing.JInternalFrame {
         p.setNumeroDocumetos(Integer.parseInt(textDocumento.getText()));
 
         PersonaDAO personaDAO = new PersonaDAO();
-        String mensaje = personaDAO.insertarPersona(p);
-        
+        String mensaje = "";
+        if (this.validaGuardarActualizar ==0){
+            System.out.println("aqui va guardar");
+             mensaje = personaDAO.insertarPersona(p);
+       }else{
+            System.out.println("Aqui va actualizar");
+            mensaje = personaDAO.actualizarPersona(p);      
+        }
+
         JOptionPane.showMessageDialog(this, mensaje);
-        
+        listarPersona();
         System.out.println(mensaje);
-    //GEN-LAST:event_btnGuardarMouseClicked
+        
+        textNombres.setText("");
+        textNombres.setText("");
+        textApellidos.setText("");
+        textDireccion.setText("");
+        textDocumento.setText("");
+        textFechaNacimiento.setText("");                                   
     }//GEN-LAST:event_btnGuardarMouseClicked
 
     private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
           System.out.println("aqui el boton eliminar persona");
         
-        PersonaDAO pdao = new PersonaDAO();
-        String mensaje = pdao.eliminarPerseona(43);
-        JOptionPane.showMessageDialog(this, mensaje);
+        int filaSeleccionada = tablePersona.getSelectedRow();
+        int idPersona = Integer.parseInt(modeloTabla.getValueAt(filaSeleccionada, 0).toString());
         
+        PersonaDAO pdao = new PersonaDAO();
+        String mensaje = pdao.eliminarPerseona(idPersona);
+        listarPersona();
+        JOptionPane.showMessageDialog(this, mensaje);
     }//GEN-LAST:event_btnEliminarMouseClicked
-    
 
-            
-            
-            
-            
-                 
+    private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
+        // TODO add your handling code here:
+        this.validaGuardarActualizar =1;
+        
+        int filaSeleccionada = tablePersona.getSelectedRow();
+        int idPersona = Integer.parseInt(modeloTabla.getValueAt(filaSeleccionada, 0).toString());
+        String nombre = modeloTabla.getValueAt(filaSeleccionada, 1).toString();
+        String apellidos = modeloTabla.getValueAt(filaSeleccionada, 2).toString();
+        int numero = Integer.parseInt(modeloTabla.getValueAt(filaSeleccionada, 3).toString());
+        String direcion = modeloTabla.getValueAt(filaSeleccionada, 4).toString();
+        String fechaNacimiento = (modeloTabla.getValueAt(filaSeleccionada, 5).toString());
+        
+        textNombres.setText(nombre);
+        textApellidos.setText(apellidos);
+        textDocumento.setText(numero+"");
+        textDireccion.setText(direcion);
+        textFechaNacimiento.setText(fechaNacimiento);
+    }//GEN-LAST:event_btnActualizarMouseClicked
+
+    private void btnLimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseClicked
+        // TODO add your handling code here:
+        textNombres.setText("");
+        textApellidos.setText("");
+        textDireccion.setText("");
+        textDocumento.setText("");
+        textFechaNacimiento.setText(""); 
+        validaGuardarActualizar = 0;
+    }//GEN-LAST:event_btnLimpiarMouseClicked
+                  
+                            
                   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable tablePersona;
     private javax.swing.JTextField textApellidos;
     private javax.swing.JTextField textDireccion;
     private javax.swing.JTextField textDocumento;
